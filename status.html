@@ -136,7 +136,7 @@ $(endif)
           <div class="tab-pane " id="panel-2">
            <h3 class="text-center"> </h3>
            <div class="col-sm-12">			
-             <table class="table table-hover">
+             <table class="table tabel-harga table-hover">
               <thead>
                 <tr>
                   <th>Paket</th>
@@ -191,7 +191,7 @@ $(endif)
     })
     .success(function (res) {
       $.each(res, function(index, el) {
-        $('.table tbody').append('<tr><td>'+el.paket+'</td><td>'+el.harga+'</td><td>'+el.aktif+'</td></tr>');
+        $('.tabel-harga tbody').append('<tr><td>'+el.paket+'</td><td>'+el.harga+'</td><td>'+el.aktif+'</td></tr>');
       });
     })
     .error(function () {
