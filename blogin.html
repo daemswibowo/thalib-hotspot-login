@@ -1,0 +1,184 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ULIZZNET / Hotspot</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="style.css" media="screen" />
+	<link rel="stylesheet" href="style2.css" media="screen" />
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script> 
+  </head>
+  <body>
+	$(if chap-id)
+		<form name="sendin" action="$(link-login-only)" method="post">
+			<input type="hidden" name="username" />
+			<input type="hidden" name="password" />
+			<input type="hidden" name="dst" value="$(link-status)" />
+			<input type="hidden" name="popup" value="false" />
+		</form>
+		
+		<script type="text/javascript" src="/md5.js"></script>
+		<script type="text/javascript">
+		<!--
+			function doLogin() {
+			document.sendin.username.value = document.login.username.value;
+			document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			document.sendin.submit();
+			return false;
+			}
+		//-->
+		</script>
+	$(endif)
+
+    <div class="container hidden-print">
+ <div style="margin-top:30px;"> </div>
+    <div class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button><a class="navbar-brand" href="#"><img style="margin-top: -12px" src="images/logo.png"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+ 
+      
+ <ul class="nav navbar-nav navbar-right">
+  <li class="active">
+   <a href="#panel-1" data-toggle="tab">Login</a>
+  </li> 
+  <li class="">
+   <a href="#panel-2" data-toggle="tab">Paket Internet</a>
+  </li>
+  <li class="">
+   <a href="#panel-4" data-toggle="tab">Hubungi Kami</a>
+  </li>  
+</ul>
+
+        </div>
+      </div>
+    </div>
+    </div>
+<div class="container">
+  <div class="well">   
+<div class="tabbable" id="">
+<div class="tab-content">
+<div class="tab-pane active" id="panel-1">
+ <h3 class="text-center">Please Log in</h3>
+ 	<form class="form-signin" name="login" action="$(link-login-only)" method="post"
+	$(if chap-id) onSubmit="return doLogin()" $(endif)>
+	<input type="hidden" name="dst" value="$(link-status)" />
+	<input type="hidden" name="popup" value="false" />	  
+    <input name="username" type="text" value="$(username)" class="form-control" placeholder="Username"><br>
+    <input type="password" name="password" class="form-control" placeholder="Password">
+    <label class=""><br>
+	<p class="text-danger text-center">						
+	$(if error) $(error) $(endif)	   
+	</p>       
+    </label> 
+	<input name="submit" type="submit" value="Log In" class="btn btn-lg btn-success btn-block"/>
+  </form>
+  <div class="trial text-danger text-center"><br>$(if trial == 'yes') <a style="color: yellow" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"></a>.$(endif)</div><br>
+			<div class="row ">
+            <div class="col-md-12">
+			<br><br>
+
+            </div>
+        </div>	  
+  		  
+</div>
+
+			<div class="tab-pane " id="panel-2">
+			<h3 class="text-center"> </h3>
+<div class="col-sm-12">			
+   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Paket</th>
+        <th>Harga</th>
+        <th>Masa Aktif</th>
+	<th>Kuota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>3 Jam</td>
+        <td>3.000</td>
+        <td>1 Hari</td>
+	<td>Unlimited</td>
+      </tr>
+      <tr>
+        <td>Harian</td>
+        <td>5.000</td>
+        <td>7 hari</td>
+	<td>Unlimited</td>
+      </tr>
+      <tr>
+        <td>Mingguan</td>
+        <td>20.000</td>
+        <td>7 Hari</td>
+	<td>Unlimited</td>
+      </tr>	
+      <tr>
+        <td>Bulanan</td>
+        <td>50.000</td>
+        <td>30 hari</td>
+	<td>Unlimited</td>
+      </tr>
+
+
+    </tbody>
+  </table>		
+ </div>   
+	
+
+    <br><br>	
+			</div>
+
+			<div class="tab-pane" id="panel-4">
+			<h3> </h3>
+			<div class="row">
+				
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+				<div class="text-center">
+				<h2>MELAYANI</h2>
+				<p>Berbagai kebutuhan internet untuk warnet, sekolah dan personal di wilayah subang dan sekitarnya</p>
+				<br class="hodden-xs"><br class="hodden-xs">
+					 <p>Alamat:</p><h4>Jl. Pantai Kelapa Patimban Subang - Jawa Barat
+</h4>				
+					  <hr>
+					  <h4>Tlp/sms/wa : 081 912 637 766</h4>
+					  <h4>Email : ulizznet@gmail.com</h4>
+				</div>
+				</div>
+			  </div>	
+			</div>
+	
+</div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+  </body>
+  
+  
+ <script>
+jQuery('.navbar .nav > li > a').click(function(){
+		jQuery('.navbar-collapse.in').removeClass('in').addClass('collapse').css('height', '0');
+
+		});
+</script> 
+<script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+</html>

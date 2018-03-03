@@ -1,0 +1,203 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Status / Hotspot</title>
+  $(if refresh-timeout)
+  <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+  $(endif) 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="-1">	
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" href="style.css" media="screen" />
+  <link rel="stylesheet" href="style2.css" media="screen" />
+  <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script> 
+  <style>
+  body {
+    background: #4098DD;
+  }
+  .nav li a {
+    color: white !important;
+  }
+
+  .nav li a:hover {
+    background: #2076BB !important;
+  }
+</style>
+<script language="JavaScript">
+  <!--
+  $(if advert-pending == 'yes')
+  var popup = '';
+  function focusAdvert() {
+    if (window.focus) popup.focus();
+  }
+  function openAdvert() {
+    popup = open('$(link-advert)', 'hotspot_advert', '');
+    setTimeout("focusAdvert()", 1000);
+  }
+  $(endif)
+  function openLogout() {
+    if (window.name != 'hotspot_status') return true;
+    open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+    window.close();
+    return false;
+  }
+//-->
+</script> 
+</head>
+<body $(if advert-pending == 'yes')
+onLoad="openAdvert()"
+$(endif)
+>
+
+<div class="container hidden-print">
+
+ <div class="hidden-xs" style="margin-top:30px;"> </div>
+ <div class="navbar navbar-default">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img style=" width: 140px;" src="logo.png"></a>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse">
+
+     <!-- MENU -->       
+     <ul class="nav navbar-nav navbar-right">
+      <li class="active">
+       <a href="#panel-1" data-toggle="tab">Status</a>
+     </li> 
+     <li class="">
+       <a href="#panel-2" data-toggle="tab">Paket Internet</a>
+     </li>
+     <li class="">
+       <a href="#panel-4" data-toggle="tab">Hubungi Kami</a>
+     </li>  
+   </ul>
+
+ </div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="well">   
+    <div class="tabbable" id="">
+      <div class="tab-content">
+        <div class="tab-pane active" id="panel-1">
+          <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+            <center>
+              <table style="max-width:400px; color: #333" class="table table-bordered">
+                $(if login-by == 'trial')
+                <br><div style="text-align: center;">Welcome trial user!</div><br>
+                $(elif login-by != 'mac')
+                <br><div style="text-align: center;">Welcome $(username)!</div><br>
+                $(endif)
+                <tr class="active"><td align="right">IP address:</td><td>$(ip)</td></tr>
+                <tr class="success"><td align="right">bytes up/down:</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+                $(if session-time-left)
+                <tr class="warning"><td align="right">connected / left:</td><td>$(uptime) / $(session-time-left)</td></tr>
+                $(else)
+                <tr class="danger"><td align="right">connected:</td><td>$(uptime)</td></tr>
+                $(endif)
+                $(if blocked == 'yes')
+                <tr class="default"><td align="right">status:</td><td><div style="color: #FF8080">
+                  <a href="$(link-advert)" target="hotspot_advert">advertisement</a> required</div></td>
+                  $(elif refresh-timeout)
+                  <tr class="warning"><td align="right">status refresh:</td><td>$(refresh-timeout)</td></tr>
+                  $(endif)
+                </table>
+                $(if login-by-mac != 'yes')
+
+                <input type="submit" class="btn btn-danger" role="button" value="log off"> 
+                $(endif)
+              </form>
+            </center>
+            <br>
+            <p class="text-center">
+              <a href="https://www.google.com" target="_blank" title="www.google.com" alt="www.google.com"><img src="img/google.png"></a> &nbsp;
+              <a href="https://www.yahoo.com" target="_blank" title="www.yahoo.com" alt="www.yahoo.com"><img src="img/yahoo.png"></a> &nbsp;
+              <a href="https://www.facebook.com" target="_blank" title="www.facebook.com" alt="www.facebook.com"><img src="img/facebook.png"></a> &nbsp;
+              <a href="https://www.twitter.com" target="_blank" title="www.twitter.com" alt="www.twitter.com"><img src="img/twitter.png"></a> &nbsp;
+              <a href="https://www.youtube.com" target="_blank" title="www.youtube.com" alt="www.youtube.com"><img src="img/youtube.png"></a> 
+            </p> 
+            <br>
+
+
+          </div>
+
+          <div class="tab-pane " id="panel-2">
+           <h3 class="text-center"> </h3>
+           <div class="col-sm-12">			
+             <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Paket</th>
+                  <th>Harga</th>
+                  <th>Masa Aktif</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>		
+          </div>   
+
+          <br><br>	
+        </div>
+
+        <div class="tab-pane" id="panel-4">
+         <h3> </h3>
+         <div class="row">
+
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="text-center">
+              <h2>MELAYANI</h2>
+              <p>INTERNET, LOKET LISTRIK, PULSA, PRINT, JILID, SCAN + KIRIM</p>
+              <br class="hodden-xs"><br class="hodden-xs">
+              <p>Alamat:</p><h4>Jalan Serang Lorong 2</h4>				
+              <hr>
+              <h4>Phone: 082 187 139 234</h4>
+            </div>
+          </div>
+        </div>	
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<script>
+  $('.carousel').carousel({
+    interval: 3000 
+  })
+  jQuery('.navbar .nav > li > a').click(function(){
+    jQuery('.navbar-collapse.in').removeClass('in').addClass('collapse').css('height', '0');
+
+  });
+  jQuery(document).ready(function($) {
+    $.ajax({
+      url: 'harga.json',
+      type: 'GET',
+      dataType: 'json',
+    })
+    .success(function (res) {
+      $.each(res, function(index, el) {
+        $('.table tbody').append('<tr><td>'+el.paket+'</td><td>'+el.harga+'</td><td>'+el.aktif+'</td></tr>');
+      });
+    })
+    .error(function () {
+      alert('gagal mengambil harga')
+    })
+    
+  });
+</script> 
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Thalib Hotspot Login</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<link rel="stylesheet" href="style.css" media="screen" />
+	<link rel="stylesheet" href="style2.css" media="screen" />
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+
+	<style>
+	.hargabro {
+	}
+	.package {
+		margin-top: 30px;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		width: 100%;
+		border: 3px solid #e8e8e8;
+		border-radius: 7px;
+		display: inline-block;
+		padding: 24px;
+		text-align: center;
+		float: left;
+		-webkit-transition: margin-top 0.5s linear;
+		transition: margin-top 0.5s linear;
+		position: relative;
+		margin-right: 11px;
+	}
+	.package:hover {
+		border-color: #3E94DA;
+		-webkit-transition: margin-top 0.3s linear;
+		transition: margin-top 0.3s linear;
+	}
+	.package .name {
+		color: #565656;
+		font-weight: 300;
+		font-size: 3rem;
+		margin-top: -5px;
+	}
+	.package .price {
+		margin-top: 7px;
+		font-size: 30pt;
+		font-weight: bold;
+	}
+	.package .price::after {
+		font-weight: normal;
+	}
+	.package hr {
+		background-color: #dedede;
+		border: none;
+		height: 1px;
+	}
+	.package .trial {
+		font-size: 10pt;
+		font-weight: 600;
+		padding: 2px 21px 2px 21px;
+		color: #33c4b6;
+		border: 1px solid #e4e4e4;
+		display: inline-block;
+		border-radius: 15px;
+		background-color: white;
+		position: relative;
+		bottom: -20px;
+	}
+	.package ul {
+		list-style: none;
+		padding: 0;
+		text-align: left;
+		margin-top: 29px;
+		text-align: center;
+	}
+	.package li {
+		font-size: 30pt;
+		margin-bottom: 15px;
+	}
+	.package .checkIcon {
+		font-family: "FontAwesome";
+		content: "\f00c";
+	}
+	.package li::before {
+
+		font-family: "FontAwesome";
+		content: "\f00c";
+		font-size: 30pt;
+
+		color: #33c4b6;
+		margin-right: 3px;
+	}
+	.package.brilliant {
+		border-color: #33c4b6;
+	}
+	/* Triangle */
+	.package.brilliant::before {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 64px 64px 0 0;
+		border-color: #3bc6b8 transparent transparent transparent;
+		position: absolute;
+		left: 0;
+		top: 0;
+		content: "";
+	}
+	.package.brilliant::after {
+		font-family: "FontAwesome";
+		content: "\f00c";
+		color: white;
+		position: absolute;
+		left: 9px;
+		top: 6px;
+		text-shadow: 0 0 2px #37c5b6;
+		font-size: 1.4rem;
+	}
+
+</style> 
+</head>
+<body id="top">		
+	<!-- Header -->
+	<header id="header">
+		<div class="content">
+			<h1><a href="#"><img class="img-responsive" src="logo.png" alt=""></a></h1>
+			<ul class="actions">
+				<li><a href="#login" class="button scrolly special icon fa-sign-in scrolly">Masuk</a></li>
+				<li><a href="#harga" class="button scrolly icon fa-chevron-down scrolly">Daftar Harga</a></li>
+			</ul>
+		</div>
+		<div class="image phone"><div class="inner"><img src="images/wifilogo.png" alt="" /></div></div>
+	</header>
+
+	<!-- One -->
+	<section id="harga" class="wrapper style2 special">
+		<header class="major">
+			<h2>Paket Harga Thalib Hotspot</h2>
+			<div class="container">
+				<div class="row text-center hargabro">
+					
+				</div>
+			</div>
+			<ul class="actions" style="margin-top:20px;">						
+				<li><a href="#login" class="button scrolly icon fa-chevron-down scrolly">Login</a></li>
+				<li><a href="#header" class="button scrolly special icon fa-chevron-up">Info</a></li>
+			</ul>	
+		</header>
+
+	</section>
+
+	$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-status)" />
+		<input type="hidden" name="popup" value="false" />
+	</form>
+
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+		<!--
+		function doLogin() {
+			document.sendin.username.value = document.login.username.value;
+			document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			document.sendin.submit();
+			return false;
+		}
+	</script>
+	$(endif)
+	<div class="tab-pane active" id="login">
+		<h3 class="text-center">Please Log in</h3>
+		<form class="form-signin" name="login" action="$(link-login-only)" method="post"
+		$(if chap-id) onSubmit="return doLogin()" $(endif)>
+		<input type="hidden" name="dst" value="$(link-status)" />
+		<input type="hidden" name="popup" value="false" />	  
+		<input name="username" type="text" value="$(username)" class="form-control" placeholder="Username"><br>
+		<input type="password" name="password" class="form-control" placeholder="Password">
+		<label class=""><br>
+			<p class="text-danger text-center">						
+				$(if error) $(error) $(endif)	   
+			</p>       
+		</label> 
+		<input name="submit" type="submit" value="Log In" class="btn btn-lg btn-success btn-block"/>
+	</form>
+	<div class="trial text-danger text-center"><br>$(if trial == 'yes') <a style="color: yellow" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"></a>.$(endif)</div><br>
+	<div class="row ">
+		<div class="col-md-12">
+			<br><br>
+		</div>
+	</div>	    		  
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+	<ul class="icons">
+		<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+		<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+		<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+	</ul>
+	<p class="copyright">&copy; Thalib Hotspot.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+<script>
+
+	jQuery(document).ready(function($) {
+		$.ajax({
+			url: 'harga.json',
+			type: 'GET',
+			dataType: 'json',
+		})
+		.success(function (res) {
+			$.each(res, function(index, el) {
+				$('.hargabro').append("<div class='col-md-4 text-center'><div class='package brilliant'><div class='name'>"+el.paket+"</div><div class='price'>"+el.harga+"</div><div class='trial'>Masa Aktif</div><ul><li><strong>"+el.aktif+"</li></ul></div></div>");
+			});
+		})
+		.error(function () {
+			alert('gagal mengambil harga')
+		})
+
+	});
+</script>
+</body>
+</html>

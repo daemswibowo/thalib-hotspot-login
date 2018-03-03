@@ -1,0 +1,27 @@
+{
+	"0":{
+		"paket":"Paket 1 Jam",
+		"harga":"Rp. 1.000",
+		"aktif":"Unlimited"
+	},
+	"1":{
+		"paket":"Paket 3 Jam",
+		"harga":"Rp. 2.000",
+		"aktif":"Unlimited"
+	},
+	"2":{
+		"paket":"Paket 10 Jam",
+		"harga":"Rp. 5.000",
+		"aktif":"Unlimited"
+	},
+	"3":{
+		"paket":"Paket 7 Hari",
+		"harga":"Rp. 20.000",
+		"aktif":"1 Bulan"
+	},
+	"4":{
+		"paket":"Paket 30 Hari",
+		"harga":"Rp. 50.000",
+		"aktif":"1 Bulan"
+	}
+}
